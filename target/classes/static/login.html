@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .form-container {
+      max-width: 400px;
+      width: 90%;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    
+    input:focus, select:focus {
+      border-color: #3a7bd5;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.2);
+    }
+    
+    button {
+      margin-top: 1.5rem;
+      padding: 12px;
+      width: 100%;
+      background: linear-gradient(to right, #4776E6, #8E54E9);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background: linear-gradient(to right, #3a64c5, #7e49d4);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+    }
+    
+    p {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #666;
+    }
+    
+    a {
+      color: #4776E6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+
+    center {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <center><h2>Login</h2></center>
+    <form id="loginForm">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" required />
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required />
+      <label for="loginRole">Role:</label>
+      <select id="loginRole" required>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <center>
+    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+  </center>
+  <script src="script.js"></script>
+</body>
+</html>

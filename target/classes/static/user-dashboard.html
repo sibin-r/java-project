@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(to right, #3a7bd5, #00d2ff);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    nav {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #f9f9f9;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #4776E6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    li:hover {
+      background: #f2f2f2;
+      transform: translateX(5px);
+    }
+    .event-name {
+      font-weight: 600;
+      color: #444;
+    }
+    .event-date {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    li .event-info {
+  display: flex;
+  flex-direction: column;
+}
+    .event-action {
+      color: #4776E6;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      border: 1px solid #4776E6;
+    }
+    .event-action:hover {
+      background: #eef2ff;
+    }
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+      nav {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Dashboard</h1>
+    <nav>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Available Events</h2>
+    <ul id="userEventList"></ul>
+    
+    <h2>Donation History</h2>
+    <ul id="donationHistory"></ul>
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>

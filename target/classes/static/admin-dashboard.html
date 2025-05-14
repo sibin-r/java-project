@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+    
+    header {
+      background: linear-gradient(to right, #3a7bd5, #00d2ff);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    form {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    
+    form button {
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+      background: linear-gradient(to right, #4776E6, #8E54E9);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    form button:hover {
+      background: linear-gradient(to right, #3a64c5, #7e49d4);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    li {
+      background: #f9f9f9;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #4776E6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    li:hover {
+      background: #f2f2f2;
+      transform: translateX(5px);
+    }
+    
+    li .event-name {
+      font-weight: 600;
+      color: #444;
+    }
+    
+    li .event-date {
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    li .event-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    li .event-action {
+      color: #4776E6;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    li .event-action.delete {
+      color: #e74c3c;
+    }
+    
+    li .event-action:hover {
+      background: #eef2ff;
+    }
+    
+    li .event-action.delete:hover {
+      background: #fee;
+    }
+    
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+      
+      nav {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+    .event-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-left: 3px solid #007bff;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+  }
+  li .event-info {
+  display: flex;
+  flex-direction: column;
+}
+  .event-name {
+    flex: 2;
+    font-weight: bold;
+  }
+
+  .event-date {
+    flex: 1.5;
+    color: #555;
+  }
+
+  .donate-btn {
+    flex: 0.5;
+    padding: 6px 12px;
+    background-color: #e7e7e7;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <a href="login.html" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h2>Create New Event</h2>
+    <form id="createEventForm">
+      <label for="eventName">Event Name:</label>
+      <input type="text" id="eventName" required />
+      
+      <label for="eventDate">Date:</label>
+      <input type="date" id="eventDate" required />
+      
+      <button type="submit">Create</button>
+    </form>
+    
+    <h2>Manage Events</h2>
+    <ul id="adminEventList">
+      <!-- Event items will be populated by JavaScript -->
+      <li>
+        <div>
+          <div class="event-name">Beach Cleanup</div>
+          <div class="event-date">May 15, 2025</div>
+        </div>
+        <div class="event-actions">
+          <div class="event-action">Edit</div>
+          <div class="event-action delete">Delete</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="event-name">Food Drive</div>
+          <div class="event-date">May 20, 2025</div>
+        </div>
+        <div class="event-actions">
+          <div class="event-action">Edit</div>
+          <div class="event-action delete">Delete</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="event-name">Fundraising Gala</div>
+          <div class="event-date">June 5, 2025</div>
+        </div>
+        <div class="event-actions">
+          <div class="event-action">Edit</div>
+          <div class="event-action delete">Delete</div>
+        </div>
+      </li>
+    </ul>
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
